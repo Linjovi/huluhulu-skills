@@ -38,7 +38,8 @@ def split_grid(grid_path, rows=3, cols=3):
         for c in range(cols):
             left = c * cell_w
             upper = r * cell_h
-            frames.append(img.crop((left, upper, left + cell_w, upper + cell_h)))
+            frames.append(
+                img.crop((left, upper, left + cell_w, upper + cell_h)))
     return frames
 
 
@@ -71,10 +72,14 @@ def create_gif(frames, gif_path, duration_ms=120, loop=0, frame_size=None,
 
 def main():
     parser = argparse.ArgumentParser(description="Slice 3x3 grid into GIF")
-    parser.add_argument("--grid", required=True, help="Path to the 3x3 grid PNG")
-    parser.add_argument("--output-dir", default="./generated_gifs", help="Output directory")
-    parser.add_argument("--gif-path", help="Explicit output GIF path (overrides --output-dir)")
-    parser.add_argument("--duration", type=int, default=120, help="Frame duration in ms (default 120)")
+    parser.add_argument("--grid", required=True,
+                        help="Path to the 3x3 grid PNG")
+    parser.add_argument(
+        "--output-dir", default="./generated_gifs", help="Output directory")
+    parser.add_argument(
+        "--gif-path", help="Explicit output GIF path (overrides --output-dir)")
+    parser.add_argument("--duration", type=int, default=120,
+                        help="Frame duration in ms (default 120)")
     parser.add_argument("--frame-size", help="Resize each frame, e.g. 256x256")
     args = parser.parse_args()
 
@@ -83,7 +88,8 @@ def main():
 
     os.makedirs(args.output_dir, exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    gif_path = args.gif_path or os.path.join(args.output_dir, f"animation_{timestamp}.gif")
+    gif_path = args.gif_path or os.path.join(
+        args.output_dir, f"animation_{timestamp}.gif")
 
     frame_size = None
     if args.frame_size:

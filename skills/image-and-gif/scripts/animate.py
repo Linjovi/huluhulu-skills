@@ -30,13 +30,18 @@ from grid_to_gif import split_grid, create_gif  # noqa: E402
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate an animated GIF via a 3x3 grid")
-    parser.add_argument("--prompt", required=True, help="Animation description")
-    parser.add_argument("--ratio", default="1:1", help="Aspect ratio (default 1:1)")
+    parser = argparse.ArgumentParser(
+        description="Generate an animated GIF via a 3x3 grid")
+    parser.add_argument("--prompt", required=True,
+                        help="Animation description")
+    parser.add_argument("--ratio", default="1:1",
+                        help="Aspect ratio (default 1:1)")
     parser.add_argument("--references", nargs="+",
                         help="Reference images: file paths, http(s) URLs, or data URLs")
-    parser.add_argument("--output-dir", default="./generated_gifs", help="Output directory")
-    parser.add_argument("--duration", type=int, default=120, help="Frame duration in ms (default 120)")
+    parser.add_argument(
+        "--output-dir", default="./generated_gifs", help="Output directory")
+    parser.add_argument("--duration", type=int, default=120,
+                        help="Frame duration in ms (default 120)")
     parser.add_argument("--frame-size", help="Resize each frame, e.g. 256x256")
     args = parser.parse_args()
 
