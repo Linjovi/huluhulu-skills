@@ -26,7 +26,7 @@ if HERE not in sys.path:
     sys.path.insert(0, HERE)
 
 from generate_grid import generate_grid  # noqa: E402
-from grid_to_gif import split_grid, create_gif  # noqa: E402
+from grid_to_gif import create_gif, prepare_frames  # noqa: E402
 
 
 def main():
@@ -57,7 +57,7 @@ def main():
     )
     print(f"Grid saved: {grid_path}", file=sys.stderr)
 
-    frames = split_grid(grid_path)
+    frames = prepare_frames(grid_path)
 
     frame_size = None
     if args.frame_size:

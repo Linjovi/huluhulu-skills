@@ -29,6 +29,8 @@ ABSOLUTE LAYOUT RULES (must obey, do NOT violate):
 4. NO element crosses a frame boundary; each pose stays fully inside its 1/9 region.
 5. STRICT EQUAL CELLS. All 9 cells have the same width and the same height (cell_w = cell_h = image_side / 3 EXACTLY). The 3 columns are vertically aligned at x = 0, image_side/3, 2*image_side/3, image_side; the 3 rows are horizontally aligned at y = 0, image_side/3, 2*image_side/3, image_side. Do NOT make the center column or any single cell wider or narrower than the others.
 6. SUBJECT CENTERED WITH SAFETY MARGIN. In every frame, the subject is placed at the geometric center of its own cell, with at least 15% padding between the subject's bounding box and EACH of the four cell edges. The subject never approaches a cell edge; the outer 15% of every cell is safe-margin background.
+7. FIXED SUBJECT ANCHOR (critical for animation). The subject's torso/head center must occupy the EXACT SAME position within every cell — identical horizontal AND vertical coordinates across all 9 frames. Only small local features (eyes, mouth, paws, tail tip) may move; the body core must NOT drift, bounce, or shift between frames.
+8. STABLE BASELINE. If the subject stands or sits, its ground contact point (paws/feet/base) stays on the same horizontal line in every frame. Do NOT lift, drop, or slide the whole body while animating.
 
 Frame order (left to right, top to bottom):
   frame1 frame2 frame3
