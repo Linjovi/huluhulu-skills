@@ -82,12 +82,3 @@ python3 {baseDir}/scripts/portfolio.py history
 ```bash
 python3 {baseDir}/scripts/portfolio.py cash <金额>
 ```
-
-## 与旧版本的区别
-
-| 项目 | 旧版本 | 新版本 |
-|------|--------|--------|
-| 数据位置 | skill 目录下的 `data/portfolio.json` | `~/.agents/portfolio-reader/data/<workspace_id>/portfolio.json` |
-| 数据共享 | 每个 agent workdir 各一份，互不共享 | 同一工作组共享一份，实时同步 |
-| 工作组隔离 | 无隔离（不同工作组数据混放在各自的 workdir） | 按 workspace_id 完全隔离 |
-| 路径确定方式 | 硬编码相对于脚本目录 | 自动推断 workspace_id |
